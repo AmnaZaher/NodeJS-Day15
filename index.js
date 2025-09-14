@@ -1,7 +1,6 @@
 const express = require('express');
 const { connectDB } = require('./config/connDB');
 const mongoose = require('mongoose');
-const userRouter = require('./router/userRouter');
 const studentRouter = require('./router/studentRouter');
 const authRouter = require('./router/authRouter')
 const session = require("express-session");
@@ -63,7 +62,7 @@ connectDB()
 
 app.use('/auth', authRouter) // login register logout
 app.use('/students',studentRouter)
-app.use('/users', userRouter)
+
 
 
 app.get('/:username', checkAuth, async (req, res) => {
